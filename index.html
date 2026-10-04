@@ -262,8 +262,8 @@ var M3=[
 ];
 var PRE=[
  E("Doigts · extension à l’élastique","2 × 20","","finger extension rubber band"),
- E("Avant-bras · curl de poignet","2 × 15","","wrist curl"),
- E("Avant-bras · marteau","2 × 12","","hammer curl forearm wrist radial deviation"),
+ E("Avant-bras · bascules de poignet en quadrupédie","2 × 10","","wrist conditioning quadruped bodyweight"),
+ E("Poignets · cercles en quadrupédie","2 × 10 / sens","","wrist circles quadruped"),
  E("Doigts · pétrissage de balle","2 × 30 s","","grip ball squeeze forearm"),
  E("Nuque · isométrique 4 directions","2 × 15 s","","neck isometric 4 directions"),
  E("Nuque · chin tuck","2 × 10","","chin tuck exercise"),
@@ -271,7 +271,7 @@ var PRE=[
  E("Épaules · Y-T-W au sol","2 × 8","","prone Y T W raises"),
  E("Épaules · push-up plus","2 × 10","","push up plus serratus"),
  E("Genoux / hanches · Copenhagen plank (version genou)","2 × 15 s / côté","","copenhagen plank knee version"),
- E("Genoux / hanches · step-down sur banc","2 × 8","","step down exercise knee control"),
+ E("Genoux / hanches · step-down sur une marche","2 × 8","","step down exercise knee control"),
  E("Genoux / hanches · abduction à l’élastique","2 × 15","","banded hip abduction"),
  E("Chevilles · équilibre unipodal, yeux ouverts puis fermés","2 × 30 s / côté","","single leg balance ankle")
 ];
@@ -287,7 +287,7 @@ var STATIONS=[
  E("2 · Shrimp / hip escape aller-retour","45 s / 15 s","","shrimp hip escape drill"),
  E("3 · Burpee + pont","45 s / 15 s","","burpee bridge bjj conditioning"),
  E("4 · Bear crawl ou crabe","45 s / 15 s","","bear crawl technique"),
- E("5 · Kettlebell swing ou slam de medicine-ball","45 s / 15 s","","kettlebell swing technique")
+ E("5 · Mountain climbers","45 s / 15 s","","mountain climbers technique")
 ];
 var FICHES={
  M1:{name:"M1 · Réveil mobilité (12 min)",sub:"Tous les matins. Dynamique, avant l’effort.",blocks:[{t:"rows",rows:M1}]},
@@ -344,7 +344,7 @@ var FICHES={
    {t:"h",x:"Si… alors…"},
    {t:"table",head:["Si…","Alors…"],body:[
     ["Douleur vive, localisée, ou articulation instable","Stop. Consulte un kiné ou un médecin du sport avant de reprendre. Remplace par une séance sans la zone touchée."],
-    ["Deux indicateurs de forme à 2/5 ou moins","Réduis les séries de 30–40 % sans toucher aux charges, ou passe en Z2."],
+    ["Deux indicateurs de forme à 2/5 ou moins","Réduis les séries de 30–40 % sans changer les variantes, ou passe en Z2."],
     ["Grosses courbatures aux jambes le lundi","Remplace Force A par 3 séries de 5 à RPE 6."],
     ["Manque de temps","Club > Force A > Force B > HIIT > M1 > Z2. M2 saute en dernier."],
     ["Fièvre ou maladie","Repos complet. Reprends à RPE 6 et remonte en 3–4 jours."],
@@ -355,22 +355,22 @@ var FSHORT={M1:"M1",M2:"M2",M3:"M3",PRE:"Prévention",TESTS:"Tests",CLUB:"Club",
 
 /* ---------- Force ---------- */
 var FA=[
- {n:"Squat (gobelet → barre)",d:["3–4 × 8–10 · RPE 7–8","4–5 × 3–5 · RPE 8–8,5","3 × 3 · RPE 8, puis 3 × 3 sauts","3 × 3 · RPE 8","2 × 3 · RPE 7, vitesse"],c:"Descente de 3 s, genoux dans l’axe des pieds.",q:"squat technique"},
- {n:["Soulevé roumain","Soulevé de terre (trap bar ou conventionnel)","Soulevé roumain","Soulevé roumain","Soulevé roumain"],d:["3 × 8","4 × 3–4","3 × 4","2 × 4","1 × 4"],c:"Dos neutre, barre collée aux jambes.",q:["romanian deadlift technique","trap bar deadlift technique","romanian deadlift technique","romanian deadlift technique","romanian deadlift technique"]},
- {n:"Tractions (puis lestées)",d:["3 × 6–8","4 × 4–6","3 × 4","3 × 3","2 × 3"],c:"Lestée dès que 3 × 8 sont propres.",q:"pull up technique"},
+ {n:["Squat poids de corps, descente lente","Squat pistol assisté (main sur un appui)","Squat pistol assisté, puis squats sautés","Squat pistol assisté","Squat rapide poids de corps"],d:["3–4 × 12–15 · RPE 7–8","4–5 × 5–6 / jambe · RPE 8–8,5","3 × 4 / jambe · RPE 8, puis 3 × 5 sauts","3 × 4 / jambe · RPE 8","2 × 6 · RPE 7, vitesse"],c:"Descente de 3 s, genoux dans l’axe des pieds. Pistol : appuie-toi d’une main si besoin.",q:["squat technique","assisted pistol squat progression","assisted pistol squat progression","assisted pistol squat progression","squat technique"]},
+ {n:["Soulevé roumain unipodal","Hip thrust unipodal (épaules sur un support)","Soulevé roumain unipodal","Soulevé roumain unipodal","Soulevé roumain unipodal"],d:["3 × 8 / jambe","4 × 6–8 / jambe","3 × 6 / jambe","2 × 6 / jambe","1 × 6 / jambe"],c:"Dos neutre, hanches de niveau, mouvement contrôlé.",q:["single leg romanian deadlift bodyweight","single leg hip thrust bodyweight","single leg romanian deadlift bodyweight","single leg romanian deadlift bodyweight","single leg romanian deadlift bodyweight"]},
+ {n:"Tractions",d:["3 × 6–8","4 × 4–6","3 × 4","3 × 3","2 × 3"],c:"Descente de 3 s dès que 3 × 8 sont propres.",q:"pull up technique"},
  {n:"Fente bulgare",d:["3 × 8 / jambe","3 × 5 / jambe","2 × 5 / jambe","2 × 4 / jambe","—"],c:"Contrôle du genou, pied avant stable.",q:"fente bulgare technique"},
- {n:"Pallof press + dead bug",d:["3 × 10 / côté","3 × 8 lourd","2 × 8","2 × 8","1 × 8"],c:"Anti-rotation : le tronc ne bouge pas.",q:"pallof press"},
- {n:"Farmer carry",d:["3 × 30–40 m","4 × 20 m lourd","2 × 20 m","2 × 20 m","—"],c:"Épaules basses, prise fermée.",q:"farmer carry technique"}
+ {n:"Dead bug + planche latérale",d:["3 × 10 / côté","3 × 8 / côté, tenue 3 s","2 × 8","2 × 8","1 × 8"],c:"Anti-rotation : le tronc ne bouge pas.",q:"dead bug exercise"},
+ {n:"Bear crawl",d:["3 × 20–30 m","4 × 20 m rapide","2 × 20 m","2 × 20 m","—"],c:"Genoux à 5 cm du sol, dos plat.",q:"bear crawl technique"}
 ];
 var FB=[
- {n:"Développé couché (barre ou haltères)",d:["3 × 8–10","4 × 4–6","3 × 3–5","3 × 3","—"],c:"Omoplates serrées, trajectoire stable.",q:"développé couché technique"},
- {n:"Rowing barre ou haltère à un bras",d:["3 × 8–10","4 × 5–6","3 × 4","3 × 3","—"],c:"Tirage vers la hanche.",q:"barbell row technique"},
- {n:"Développé militaire ou landmine press",d:["3 × 8","3 × 5","2 × 5","2 × 4","—"],c:"Gainé, côtes rentrées.",q:"landmine press technique"},
+ {n:["Pompes, descente lente","Pompes pieds surélevés","Pompes archer ou pieds surélevés","Pompes pieds surélevés","Pompes"],d:["3 × 10–15","4 × 6–8","3 × 5","3 × 4","—"],c:"Corps aligné, coudes à 45°, poitrine proche du sol.",q:["push up technique","decline push up technique","archer push up progression","decline push up technique","push up technique"]},
+ {n:"Rowing inversé (sous une table solide)",d:["3 × 8–10","4 × 6–8","3 × 5","3 × 4","—"],c:"Corps gainé, poitrine vers la table. Pieds surélevés pour durcir.",q:"inverted row under table"},
+ {n:"Pompes en pike",d:["3 × 8","3 × 5–6","2 × 5","2 × 4","—"],c:"Gainé, la tête passe entre les bras.",q:"pike push up technique"},
  {n:"Tractions prise serviette",d:["3 × 4–6","4 × 3–5","2 × 4","2 × 3","—"],c:"Grip + biceps, mouvement contrôlé.",q:"towel pull up grip training"},
- {n:"Rotation : landmine ou lancers de medicine-ball",d:["3 × 6 / côté","3 × 5 explosif","3 × 4","2 × 4","—"],c:"Rotation depuis les hanches.",q:"landmine rotation medicine ball rotational throw"},
+ {n:"Russian twist pieds décollés",d:["3 × 10 / côté","3 × 8 / côté rapide","3 × 6 / côté","2 × 6 / côté","—"],c:"Rotation depuis le tronc et les hanches.",q:"russian twist bodyweight"},
  {n:"Nuque isométrique (4 directions)",d:["3 × 15 s","3 × 15 s","2 × 15 s","2 × 15 s","1 × 15 s"],c:"RPE 6 : jamais de secousse.",q:"neck isometric 4 directions"},
- {n:"Doigts / avant-bras (élastique, curls, suspension)",d:["3 × 20–30 s","3 × 30–40 s","2 × 30 s","2 × 20 s","—"],c:"Extension des doigts = prévention.",q:"finger extension forearm training grappling"},
- {n:"Face pull + rotation externe",d:["2 × 12","2 × 12","2 × 12","2 × 10","1 × 10"],c:"Coudes hauts, contrôle.",q:"face pull technique"}
+ {n:"Doigts / avant-bras (élastique, suspension à la barre)",d:["3 × 20–30 s","3 × 30–40 s","2 × 30 s","2 × 20 s","—"],c:"Extension des doigts = prévention.",q:"finger extension forearm training grappling"},
+ {n:"Y-T-W au sol",d:["2 × 12","2 × 12","2 × 12","2 × 10","1 × 10"],c:"Pouces vers le ciel, omoplates serrées.",q:"prone Y T W raises"}
 ];
 function liftRows(tbl,p){
   var out=[];
@@ -412,12 +412,12 @@ function build(w,dow){
     am=B({short:"M1",title:"Mobilité M1 + activation",dur:p===3?"≈ 15 min":p===4?"≈ 15 min":"≈ 20 min",load:1,
       text:p>=3?"Réveil dynamique, tranquille.":"Réveil dynamique (hanches, colonne, épaules), puis activation des fessiers et des omoplates.",refs:["M1"]});
     var fat=[
-      ["Force A · jambes + tirage","60 min",3,"Squat, soulevé roumain, tractions, fente bulgare, gainage anti-rotation, farmer carry. Repos 90 s entre les séries."],
-      ["Force A · lourd","60 min",3,"Charges lourdes. RPE 8–8,5, repos 2–3 min entre les séries."],
-      ["Force A · contraste","50 min",3,"Squat suivi de sauts. Repos long, aucune série à l’échec."],
-      ["Force A · courte","40 min",2,"Même charge qu’en S6, RPE 8. Moins de séries."],
-      ["Force A · éveil","35 min",1,"Squat RPE 7, à vitesse. Tu sors frais."]][p];
-    pm=B({short:"Force A",title:fat[0],dur:fat[1],load:fat[2],text:fat[3]+" Échauffement : 5 min de cardio léger, M1 abrégé, 2 séries de montée en charge au squat.",ex:liftRows(FA,p)});
+      ["Force A · jambes + tirage","60 min",3,"Squat, soulevé roumain unipodal, tractions, fente bulgare, gainage, bear crawl. Repos 90 s entre les séries."],
+      ["Force A · difficile","60 min",3,"Variantes difficiles (unipodal, tempo lent). RPE 8–8,5, repos 2–3 min entre les séries."],
+      ["Force A · contraste","50 min",3,"Squat pistol assisté suivi de sauts. Repos long, aucune série à l’échec."],
+      ["Force A · courte","40 min",2,"Même difficulté qu’en S6, RPE 8. Moins de séries."],
+      ["Force A · éveil","35 min",1,"Squat poids de corps RPE 7, à vitesse. Tu sors frais."]][p];
+    pm=B({short:"Force A",title:fat[0],dur:fat[1],load:fat[2],text:fat[3]+" Échauffement : 5 min de cardio léger, M1 abrégé, 2 séries d’approche au squat (version plus facile).",ex:liftRows(FA,p)});
     break;
   case 1:
     am=B({short:p===4?"M1+Pré":"M1+Pré",title:p===4?"M1 + prévention courte":"M1 + prévention",dur:p===4?"≈ 20 min":"≈ 27 min",load:1,
@@ -442,8 +442,8 @@ function build(w,dow){
       pm=B({short:"Plan de jeu",title:"Plan de jeu · 70 %",dur:"30 min",load:1,text:"Drilling lent de tes 2 chaînes, puis 10 min de visualisation, de l’échauffement à la victoire.",refs:["JEU"]});
     } else {
       am=B({short:"Z2",title:"Aérobie facile (Z2)",dur:z[p][0],load:2,text:z[p][1],refs:p<2?["M1"]:[]});
-      var fbt=[["Force B · haut du corps + grip","55–60 min",2,"Développé couché, rowing, développé militaire, tractions serviette, rotations, nuque, doigts. RPE 7–8."],
-               ["Force B · lourd","55 min",2,"Séries lourdes, RPE 8."],
+      var fbt=[["Force B · haut du corps + grip","55–60 min",2,"Pompes, rowing inversé, pompes en pike, tractions serviette, rotations, nuque, doigts. RPE 7–8."],
+               ["Force B · difficile","55 min",2,"Variantes difficiles, RPE 8."],
                ["Force B · maintien","45–50 min",2,"RPE 8, aucune série à l’échec."],
                ["Force B · courte","35 min",1,"Rapide, jamais à l’échec."]][p];
       pm=B({short:"Force B",title:fbt[0],dur:fbt[1],load:fbt[2],text:fbt[3],ex:liftRows(FB,p)});
@@ -495,9 +495,9 @@ function build(w,dow){
       am=B({short:"Z2",title:"Aérobie facile (Z2)",dur:"40 min",load:2,text:"Course ou vélo à RPE 3–4 sur terrain plat."});
     }
     var PW=[
-      E("Saut vertical ou box jump","× 4","Vitesse, réception silencieuse.","box jump technique"),
-      E("Kettlebell swing explosif","× 6","Hanches, pas les bras.","kettlebell swing technique"),
-      E("Slam de medicine-ball","× 5","","medicine ball slam"),
+      E("Saut vertical","× 4","Vitesse, réception silencieuse.","vertical jump technique"),
+      E("Squat sauté","× 6","Extension complète des hanches, réception souple.","jump squat technique"),
+      E("Sprawl explosif","× 5","Hanches au sol, remontée vive.","sprawl technique"),
       E("Pompes explosives","× 4","","explosive push up")
     ];
     if(w===0){
@@ -511,7 +511,7 @@ function build(w,dow){
     } else if(w===6){
       pm=B({short:"Puissance",title:"Puissance courte + plan de jeu",dur:"40 min",load:2,text:"2 tours de puissance à vitesse maximale, peu de répétitions. Puis 20 min de drilling de tes 2 chaînes.",ex:PW,refs:["JEU"]});
     } else {
-      var tours=p===0?"2 tours à charge légère, technique.":"3–4 tours à pleine vitesse.";
+      var tours=p===0?"2 tours à vitesse modérée, technique.":"3–4 tours à pleine vitesse.";
       pm=B({short:"Puissance",title:"Puissance + drilling solo",dur:"60 min",load:2,
         text:"15 min de puissance : "+tours+" Repos 90 s entre les tours : on cherche la vitesse, pas la fatigue. Puis 30 min de drilling solo (6 drills de 4 min + 1 min de pause, à 80 % de vitesse) et 10 min de plan de jeu.",
         ex:PW.concat([
