@@ -1,0 +1,680 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Objectif 28 novembre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap">
+<style>
+:root{
+  --bg:#F9F8F6;
+  --fg:#111111;
+  --muted:#68645D;
+  --line:#D9D5CC;
+  --surface:#F0EEE8;
+  --accent:#B8420F;
+  --accent-fg:#F9F8F6;
+  --font-display:'Syne',system-ui,sans-serif;
+  --font-body:'Instrument Sans',system-ui,sans-serif;
+  --font-mono:'DM Mono',ui-monospace,Menlo,monospace;
+  --wkw:44px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111111;--fg:#F9F8F6;--muted:#A5A097;--line:#2E2D2A;--surface:#1B1A19;--accent:#E56A2C;--accent-fg:#111111;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111111;--fg:#F9F8F6;--muted:#A5A097;--line:#2E2D2A;--surface:#1B1A19;--accent:#E56A2C;--accent-fg:#111111;color-scheme:dark;
+}
+@media (min-width:720px){:root{--wkw:128px}}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.5;
+  padding-inline:clamp(16px,4vw,48px);padding-block:0 72px}
+button{font:inherit;color:inherit;border-radius:0;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1120px;margin-inline:auto}
+.mono{font-family:var(--font-mono)}
+
+/* nav */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--fg);
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 16px;padding-block:12px}
+.brand{font:500 12px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase}
+.tabs{display:flex}
+.tab{font:500 12px/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;padding:11px 14px;background:transparent;
+  border:1px solid var(--fg);margin-left:-1px;transition:background .12s,color .12s}
+.tab:first-child{margin-left:0}
+.tab:hover{background:var(--surface)}
+.tab[aria-current="page"]{background:var(--fg);color:var(--bg)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 56px;align-items:end;padding-block:clamp(40px,8vw,88px) 40px}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.5rem,9vw,5.75rem);line-height:.94;letter-spacing:-.03em;margin:0;text-wrap:balance}
+.lede{max-width:46ch;margin:20px 0 0;color:var(--muted);font-size:1.0625rem}
+.count{text-align:right}
+.count b{display:block;font:800 clamp(3.25rem,11vw,6.5rem)/.9 var(--font-display);letter-spacing:-.03em;color:var(--accent)}
+.count span{display:block;margin-top:10px;font:400 12px/1.3 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:640px){.hero{grid-template-columns:minmax(0,1fr)}.count{text-align:left}}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-block:1px solid var(--fg)}
+.stat{padding:16px 20px 16px 0;display:flex;flex-direction:column;gap:4px;min-width:0}
+.stat+.stat{border-left:1px solid var(--line);padding-left:20px}
+@media (max-width:640px){.stat+.stat{border-left:0;border-top:1px solid var(--line);padding-left:0}}
+.stat small{font:400 11px/1.2 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.stat strong{font:700 1.375rem/1.2 var(--font-display);letter-spacing:-.01em}
+
+.sec-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;padding-block:56px 16px}
+.sec-h h2{font:700 clamp(1.5rem,4vw,2.25rem)/1.05 var(--font-display);letter-spacing:-.02em;margin:0}
+.sec-h p{margin:0;color:var(--muted);font-size:.9375rem}
+
+/* calendar */
+.cal{border:1px solid var(--fg)}
+.row{display:grid;grid-template-columns:var(--wkw) repeat(7,minmax(0,1fr))}
+.row.head{border-bottom:1px solid var(--fg);background:var(--surface)}
+.row.head>div{padding:8px 6px;font:500 11px/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left}
+.row.wk{border-top:1px solid var(--line)}
+.row.wk.newphase{border-top:2px solid var(--fg)}
+.row.wk:first-of-type{border-top:0}
+.wk-h{padding:10px 6px 8px 8px;display:flex;flex-direction:column;gap:4px;border-right:1px solid var(--fg);min-width:0}
+.wk-h b{font:800 1.125rem/1 var(--font-display)}
+.wk-h small{display:none;font:400 11px/1.25 var(--font-mono);letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+@media (min-width:720px){.wk-h{padding:12px 12px}.wk-h small{display:block}}
+.cell{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:6px;min-height:60px;padding:6px;text-align:left;
+  background:transparent;border:0;border-left:1px solid var(--line);min-width:0;transition:background .1s}
+.cell:first-of-type{border-left:0}
+.cell:hover{background:var(--surface)}
+.cell .d{font:500 13px/1 var(--font-mono);display:flex;gap:4px;align-items:baseline}
+.cell .d small{font-size:10px;color:var(--muted);text-transform:uppercase}
+.cell .lab{display:none;flex-direction:column;gap:1px;font-size:12px;line-height:1.25;min-width:0}
+.cell .lab em{font-style:normal;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cell .lab b{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bars{display:flex;flex-direction:column;gap:3px}
+.bars i{display:block;height:5px}
+.l0{background:transparent;border:1px dashed var(--line)}
+.l1{background:transparent;border:1px solid var(--fg)}
+.l2{background:color-mix(in srgb,var(--fg) 45%,transparent)}
+.l3{background:var(--fg)}
+.tick{position:absolute;top:5px;right:6px;font:500 11px/1 var(--font-mono);color:var(--accent);display:none}
+.cell.all-done .tick{display:block}
+.cell.today{box-shadow:inset 0 0 0 2px var(--accent)}
+.cell.comp{background:var(--accent);color:var(--accent-fg)}
+.cell.comp .d small,.cell.comp .lab em{color:var(--accent-fg)}
+.cell.comp .l3{background:var(--accent-fg)}
+.cell.comp:hover{background:var(--accent)}
+.cell.comp .tick{color:var(--accent-fg)}
+@media (min-width:720px){
+  .cell{min-height:104px;padding:10px 10px 10px 10px}
+  .cell .lab{display:flex}
+  .cell .d{font-size:14px}
+  .tick{top:9px;right:10px}
+}
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px;padding-block:16px 0;font:400 12px/1.2 var(--font-mono);color:var(--muted);align-items:center}
+.legend span{display:inline-flex;gap:8px;align-items:center}
+.legend i{display:inline-block;width:22px;height:6px}
+
+/* day view */
+.dayhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 24px;padding-block:clamp(32px,6vw,64px) 24px}
+.eyebrow{margin:0 0 10px;font:500 12px/1.3 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.dayhead h2{font:800 clamp(2.25rem,7vw,4.5rem)/.95 var(--font-display);letter-spacing:-.03em;margin:0;text-wrap:balance}
+.pn{display:flex}
+.pn button{width:48px;height:48px;border:1px solid var(--fg);background:transparent;font:500 18px/1 var(--font-mono);margin-left:-1px;transition:background .12s,color .12s}
+.pn button:first-child{margin-left:0}
+.pn button:hover:not(:disabled){background:var(--fg);color:var(--bg)}
+.pn button:disabled{opacity:.3;cursor:default}
+.strip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border:1px solid var(--fg)}
+.strip button{display:flex;flex-direction:column;gap:2px;align-items:flex-start;padding:8px 8px 10px;background:transparent;border:0;border-left:1px solid var(--line);transition:background .1s}
+.strip button:first-child{border-left:0}
+.strip button:hover{background:var(--surface)}
+.strip button small{font:400 10px/1 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.strip button b{font:500 15px/1.2 var(--font-mono)}
+.strip button[aria-current="date"]{background:var(--fg);color:var(--bg)}
+.strip button[aria-current="date"] small{color:var(--bg)}
+
+.block{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px 40px;padding-block:32px;border-top:1px solid var(--fg)}
+.block:first-of-type{margin-top:40px}
+.block:last-of-type{border-bottom:1px solid var(--fg)}
+@media (max-width:760px){.block{grid-template-columns:minmax(0,1fr);gap:14px}}
+.b-meta{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+@media (max-width:760px){.b-meta{flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 16px}}
+.b-slot{font:500 11px/1.2 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.b-dur{font:500 15px/1.2 var(--font-mono)}
+.b-load{display:inline-flex;gap:8px;align-items:center;font:400 12px/1 var(--font-mono);color:var(--muted)}
+.b-load i{display:inline-block;width:28px;height:6px}
+.chk{display:inline-flex;gap:10px;align-items:center;padding:8px 12px 8px 8px;background:transparent;border:1px solid var(--fg);font:500 12px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;transition:background .1s}
+.chk:hover{background:var(--surface)}
+.chk .box{width:16px;height:16px;border:1px solid var(--fg);display:grid;place-items:center;font-size:12px;line-height:1}
+.chk[aria-pressed="true"] .box{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.chk[aria-pressed="true"] .box::after{content:"✓"}
+.b-main h3{font:700 clamp(1.5rem,3.6vw,2.125rem)/1.08 var(--font-display);letter-spacing:-.02em;margin:0 0 12px;text-wrap:balance}
+.b-text{margin:0 0 22px;max-width:62ch}
+.is-rest .b-main h3{color:var(--muted)}
+
+.exs{list-style:none;margin:0 0 20px;padding:0;border-top:1px solid var(--line)}
+.ex{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.1fr) minmax(0,1.6fr) auto;gap:4px 20px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+.ex .n{font-weight:600}
+.ex .dose{font-family:var(--font-mono);font-size:13.5px}
+.ex .c{color:var(--muted);font-size:14px}
+.ex .v{font:500 12px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--fg);padding:8px 10px;white-space:nowrap;transition:background .1s,color .1s}
+.ex .v:hover{background:var(--fg);color:var(--bg)}
+.ex .v.none{visibility:hidden}
+@media (max-width:760px){
+  .ex{grid-template-columns:minmax(0,1fr) auto;gap:4px 16px}
+  .ex .dose{grid-column:1}
+  .ex .c{grid-column:1}
+  .ex .v{grid-column:2;grid-row:1 / span 2;align-self:center}
+}
+
+details.fiche{border:1px solid var(--line);margin-bottom:8px}
+details.fiche[open]{border-color:var(--fg)}
+details.fiche>summary{list-style:none;cursor:pointer;padding:12px 14px;font:500 12px/1.3 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;gap:12px;transition:background .1s}
+details.fiche>summary::-webkit-details-marker{display:none}
+details.fiche>summary::after{content:"+";font-size:16px;line-height:1}
+details.fiche[open]>summary::after{content:"–"}
+details.fiche>summary:hover{background:var(--surface)}
+details.fiche>.fb{padding:4px 14px 14px}
+
+.note{margin:14px 0 0;color:var(--muted);font-size:14.5px;max-width:64ch}
+.bul{margin:14px 0 0;padding-left:18px;font-size:14.5px;color:var(--muted);max-width:64ch}
+.bul li{margin-bottom:6px}
+.tw{overflow-x:auto;margin-top:8px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}
+th{font:500 11px/1.2 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:10px 12px;background:var(--surface);border-bottom:1px solid var(--fg);color:var(--muted)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+h4{font:700 1.125rem/1.2 var(--font-display);margin:28px 0 4px}
+
+/* fiches view */
+.fnav{display:flex;flex-wrap:wrap;gap:0;margin-bottom:32px}
+.fnav button{font:500 12px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;padding:11px 14px;background:transparent;border:1px solid var(--fg);margin:0 -1px -1px 0;transition:background .12s,color .12s}
+.fnav button:hover{background:var(--surface)}
+.fnav button[aria-current="true"]{background:var(--fg);color:var(--bg)}
+.fview h3{font:800 clamp(1.75rem,5vw,3rem)/1 var(--font-display);letter-spacing:-.025em;margin:0 0 8px}
+.fview .sub{margin:0 0 24px;color:var(--muted);font:400 13px/1.4 var(--font-mono)}
+
+footer{margin-top:64px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;max-width:70ch}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="brand">JJB No-Gi · Ceinture blanche</span>
+    <nav class="tabs" aria-label="Vues">
+      <button class="tab" data-view="cal">Calendrier</button>
+      <button class="tab" data-view="day">Jour</button>
+      <button class="tab" data-view="fiches">Fiches</button>
+    </nav>
+  </header>
+  <main id="app"></main>
+  <footer>
+    Programme rédigé par Claude dans le rôle d’un coach de JJB, à partir de 25 sources. Il ne remplace ni un avis médical ni ton coach de club : fais-lui valider le plan. Douleur vive ou articulation qui lâche : tu t’arrêtes.
+  </footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+var MOIS=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+var JOURS=["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+var JL=["L","M","M","J","V","S","D"];
+var N=56;
+function dateOf(i){return new Date(2026,9,5+i);}
+function fmt(i){var d=dateOf(i);return d.getDate()+" "+MOIS[d.getMonth()];}
+function fmtFull(i){return JOURS[i%7]+" "+fmt(i);}
+function phaseOf(w){return w<3?0:w<5?1:w===5?2:w===6?3:4;}
+var PHN=["Fondations","Force & puissance","Spécifique","Affûtage","Semaine de compétition"];
+var WKN=["Fondations","Fondations","Fondations","Force & puissance","Force & puissance","Spécifique","Affûtage","Compétition"];
+var LOADN=["Repos","Léger","Modéré","Intense"];
+
+function yt(q){return "https://www.youtube.com/results?search_query="+encodeURIComponent(q);}
+function E(n,d,c,q){return {n:n,d:d,c:c||"",q:q===undefined?n:q};}
+
+/* ---------- Fiches ---------- */
+var M1=[
+ E("Chat-vache (cat-camel)","10 répétitions","","cat cow stretch"),
+ E("Rotation thoracique au sol (open book)","8 / côté","","open book thoracic rotation"),
+ E("90/90 hip switch","10 répétitions","","90/90 hip switch"),
+ E("World’s greatest stretch","5 / côté","","world's greatest stretch"),
+ E("Pont fessier","12 répétitions","","glute bridge technique"),
+ E("Cossack squat","8 / côté","","cossack squat"),
+ E("Cercles d’épaules (CARs)","5 / sens","","shoulder CARs controlled articular rotations"),
+ E("Rotations de nuque douces","5 / sens","","neck mobility gentle rotations"),
+ E("Balancement de cheville (genou au mur)","10 / côté","","ankle mobility knee to wall"),
+ E("Squat profond, tenue","3 × 30 s","","deep squat hold mobility")
+];
+var M2=[
+ E("Ischio-jambiers · assis, méthode PNF","2 × 30–45 s / jambe","Contracter 5 s, relâcher, aller plus loin.","seated hamstring stretch PNF"),
+ E("Fléchisseurs de hanche · couch stretch","2 × 45 s / côté","Genou au mur.","couch stretch"),
+ E("Adducteurs · grenouille (frog)","2 × 45 s","","frog stretch adductors"),
+ E("Piriforme / fessiers · pigeon","2 × 45 s / côté","","pigeon pose stretch"),
+ E("Colonne thoracique · extension sur rouleau","2 × 45 s","","thoracic extension foam roller"),
+ E("Pectoraux / épaules · encadrement de porte","2 × 30 s / côté","","doorway chest stretch"),
+ E("Avant-bras et poignets · flexion / extension en appui","2 × 30 s","","wrist flexor extensor stretch"),
+ E("Nuque · inclinaison latérale douce","2 × 20 s / côté","","neck lateral stretch gentle")
+];
+var M3=[
+ E("Hip escapes, va-et-vient","10 aller-retour","","hip escape shrimp bjj drill"),
+ E("Pont sur l’épaule","8 / côté","","bjj bridge upa drill"),
+ E("Vagues de colonne au sol","8 répétitions","","spinal waves floor mobility"),
+ E("Relevé technique","8 / côté","","technical stand up bjj"),
+ E("Crabe latéral","2 allers-retours","","crab walk sideways"),
+ E("Rotation du bassin allongé sur le dos","8 / côté","","supine pelvic rotation lower trunk rotation")
+];
+var PRE=[
+ E("Doigts · extension à l’élastique","2 × 20","","finger extension rubber band"),
+ E("Avant-bras · curl de poignet","2 × 15","","wrist curl"),
+ E("Avant-bras · marteau","2 × 12","","hammer curl forearm wrist radial deviation"),
+ E("Doigts · pétrissage de balle","2 × 30 s","","grip ball squeeze forearm"),
+ E("Nuque · isométrique 4 directions","2 × 15 s","","neck isometric 4 directions"),
+ E("Nuque · chin tuck","2 × 10","","chin tuck exercise"),
+ E("Épaules · rotation externe à l’élastique","2 × 12","","band external rotation"),
+ E("Épaules · Y-T-W au sol","2 × 8","","prone Y T W raises"),
+ E("Épaules · push-up plus","2 × 10","","push up plus serratus"),
+ E("Genoux / hanches · Copenhagen plank (version genou)","2 × 15 s / côté","","copenhagen plank knee version"),
+ E("Genoux / hanches · step-down sur banc","2 × 8","","step down exercise knee control"),
+ E("Genoux / hanches · abduction à l’élastique","2 × 15","","banded hip abduction"),
+ E("Chevilles · équilibre unipodal, yeux ouverts puis fermés","2 × 30 s / côté","","single leg balance ankle")
+];
+var TESTS=[
+ E("Tractions maximales","À noter : répétitions","Prise pronation, sans élan, menton au-dessus de la barre.","pull up test max reps standard"),
+ E("Pompes en 60 s","À noter : répétitions","Poitrine à 5 cm du sol, corps aligné.","push up test 60 seconds"),
+ E("Suspension à la barre","À noter : secondes","Prise pronation, chrono jusqu’à la lâche.","dead hang test"),
+ E("Saut en longueur sans élan","À noter : centimètres","Meilleur de 3 essais.","standing broad jump technique"),
+ E("Circuit grappling de 5 min","À noter : répétitions ou tours, RPE final, FC","Les 5 stations (45 s / 15 s), 1 round complet.",null)
+];
+var STATIONS=[
+ E("1 · Sprawl + relevé technique","45 s / 15 s","","sprawl to technical stand up"),
+ E("2 · Shrimp / hip escape aller-retour","45 s / 15 s","","shrimp hip escape drill"),
+ E("3 · Burpee + pont","45 s / 15 s","","burpee bridge bjj conditioning"),
+ E("4 · Bear crawl ou crabe","45 s / 15 s","","bear crawl technique"),
+ E("5 · Kettlebell swing ou slam de medicine-ball","45 s / 15 s","","kettlebell swing technique")
+];
+var FICHES={
+ M1:{name:"M1 · Réveil mobilité (12 min)",sub:"Tous les matins. Dynamique, avant l’effort.",blocks:[{t:"rows",rows:M1}]},
+ M2:{name:"M2 · Souplesse longue (30 min)",sub:"Vendredi matin, version allégée dimanche soir. Toujours à part de la force et du HIIT.",blocks:[
+   {t:"p",x:"Les étirements longs gagnent de l’amplitude mais peuvent baisser la performance s’ils précèdent l’effort. Étirement ressenti à 6–7/10, jamais jusqu’à la douleur. 30–45 s par position, en 2 passages."},
+   {t:"rows",rows:M2}]},
+ M3:{name:"M3 · Mobilité fonctionnelle JJB (15 min)",sub:"Jeudi matin. Lent, ample, sans forcer.",blocks:[{t:"rows",rows:M3}]},
+ PRE:{name:"PRÉ · Prévention (15 min)",sub:"Mardi matin. Genou, doigts, épaule, cou : les zones qui cassent le plus.",blocks:[{t:"rows",rows:PRE}]},
+ TESTS:{name:"TESTS · Deux évaluations",sub:"Samedi 10 oct. et samedi 7 nov. Après 10 min d’échauffement, dans cet ordre.",blocks:[
+   {t:"rows",rows:TESTS},
+   {t:"p",x:"Note les résultats dans ton journal. La comparaison entre les deux dates te dit si le travail paie."}]},
+ CLUB:{name:"CLUB · Jeudi et dimanche",sub:"Le jeudi dure 2h30 : limite l’effort vif à environ 1h30, puis flow ou technique.",blocks:[
+   {t:"table",head:["Période","Objectif de sparring","Intensité","Règles"],body:[
+    ["Phase 1 (S1–S3)","Un objectif par round : passer la garde, sortir d’un contrôle, finir une position choisie. Beaucoup de départs imposés.","RPE 6–7","Tap tôt. Pas de blessure avant d’avoir bâti la base."],
+    ["Phase 2 (S4–S5)","Rounds de 5 min en partant debout, avec points. Joue ta chaîne principale.","RPE 7–8","3–5 rounds vifs, le reste en technique."],
+    ["Phase 3 (S6)","Rounds chronométrés comme en compétition, gestion de la dernière minute, avance au score.","RPE 8","3–4 rounds vifs maximum. Aucune technique nouvelle."],
+    ["S7","Le même type de rounds, moins nombreux.","RPE 8","≈ 60 % du volume habituel."],
+    ["S8","Technique et flow uniquement le jeudi.","RPE 5–6","Pas de sparring dur à 48 h de la compétition."]]},
+   {t:"ul",x:["Le jeudi dure 2h30 : emporte de l’eau et une collation.","No-Gi : le genou est la zone la plus touchée. Refuse de résister à une clé de jambe qui tord le genou : tape tôt, préviens ton partenaire, et respecte les règles de l’événement.","Hygiène : douche juste après la séance, tenue lavée à chaque fois, plaies couvertes."]}]},
+ JEU:{name:"PLAN DE JEU · No-Gi ceinture blanche",sub:"Modèle à valider avec ton coach de club.",blocks:[
+   {t:"table",head:["Situation","Plan A","Plan B"],body:[
+    ["Debout","Une entrée sur jambe (single ou double leg) travaillée jusqu’à l’automatisme.","Si le sprawl arrive : snap-down vers le contrôle, ou tirer en garde."],
+    ["Dessus","Passage de garde simple (knee cut ou over-under), puis contrôle latéral et montée.","Retour au contrôle latéral si le passage est bloqué. Ne te précipite pas vers la finition."],
+    ["Dessous","Garde fermée ou butterfly, renversement simple, retour debout.","Half guard avec demi-garde profonde ; remise debout technique."],
+    ["Finitions","Étranglement arrière, guillotine, americana/kimura : 2 ou 3 maximum.","Ne cherche jamais la finition au détriment de ta position."],
+    ["Défense","Sortie de montée (pont + roulade), sortie de contrôle latéral (shrimp), coudes dedans.","Te mettre en garde ou te relever dès que possible."]]},
+   {t:"p",x:"Tes points viennent surtout de ta position (amenée au sol, passage, montée), pas de tes finitions. Un plan simple répété 500 fois bat un répertoire large mal maîtrisé."}]},
+ JOURJ:{name:"JOUR J · Samedi 28 novembre",sub:"Protocole complet. Rien de nouveau ce jour-là.",blocks:[
+   {t:"table",head:["Moment","Action"],body:[
+    ["Veille (vendredi 27)","Activation de 15 min. Sac prêt : tenue No-Gi, protège-dents si exigé, serviette, pièce d’identité, eau, collations. Repas riche en glucides habituels, rien de nouveau. Pesée si elle a lieu la veille. Coucher avant 22h30."],
+    ["Réveil","Au moins 3 h avant le premier combat. Petit-déjeuner testé lors de la répétition générale du 14 nov. Hydratation par petites gorgées."],
+    ["Arrivée","1 h 30 avant l’appel. Repère l’aire d’échauffement, la zone de pesée, ton tapis. Reste au calme, ne te compare pas aux autres."],
+    ["Échauffement (20–25 min)","5 min de cardio léger → M1 dynamique (6 min) → 3 drills : shrimp, sprawl, entrée sur jambe (5 min) → 3 min de flow ou d’accélérations → 30 s de respiration lente. Termine 5–10 min avant l’appel."],
+    ["Entre les combats","Reste au chaud, bois par petites gorgées, mange des glucides faciles (banane, compote, riz soufflé). 3–5 min de mobilité dynamique avant de remonter. Ne rejoue pas le combat précédent : note-le, puis oublie-le."],
+    ["Dans le combat","Plan A en premier. Si ça échoue deux fois, plan B. Position d’abord, finition ensuite. Respire, joue la dernière minute avec lucidité."],
+    ["Après","Dans l’heure : protéines + glucides. Marche, douche, sommeil. Le dimanche : repos, puis débrief écrit."]]},
+   {t:"p",x:"Changement de catégorie de poids : progressivement et avec un diététicien du sport, jamais par déshydratation."}]},
+ REP:{name:"REPÈRES · Effort, récupération, nutrition",sub:"L’échelle RPE sert partout dans le plan.",blocks:[
+   {t:"table",head:["RPE","Sensation","Exemples"],body:[
+    ["3–4","Tu tiens une conversation complète","Aérobie facile (Z2)"],
+    ["6","Phrases courtes, effort tenable longtemps","Sparring technique, échauffements"],
+    ["7","Effort soutenu, 3 répétitions en réserve","Séries de force de la Phase 1"],
+    ["8","Dur, 2 répétitions en réserve","Force Phase 2, HIIT S1–S2"],
+    ["9","Très dur, 1 répétition en réserve","HIIT S5–S8, rounds de compétition"],
+    ["10","Maximal","Jamais en musculation ; sprints finaux uniquement"]]},
+   {t:"h",x:"Récupération"},
+   {t:"table",head:["Levier","Ce que tu fais"],body:[
+    ["Sommeil","7 h minimum, idéalement 8 ; lever à heure fixe (±1 h). Le jeudi, le club finit à 21h30 : douche, repas léger, écrans éteints, coucher vers 23h00."],
+    ["Protéines","≈ 1,4 à 2,0 g par kg de poids de corps et par jour, en 4 prises toutes les 3–4 h. Option : 30–40 g de protéine lente avant le coucher."],
+    ["Glucides","Plus élevés les jours de HIIT et de club (mardi, jeudi, dimanche), plus modérés les jours de repos."],
+    ["Hydratation","Bois régulièrement ; urine claire. ≈ 500 ml dans les 2 h avant une séance."],
+    ["Récup active","Marche de 20 min et M2 allégé le dimanche soir ; foam rolling 10 min si tu veux."],
+    ["Alcool","Évite-le dans les 2 dernières semaines."]]},
+   {t:"h",x:"Si… alors…"},
+   {t:"table",head:["Si…","Alors…"],body:[
+    ["Douleur vive, localisée, ou articulation instable","Stop. Consulte un kiné ou un médecin du sport avant de reprendre. Remplace par une séance sans la zone touchée."],
+    ["Deux indicateurs de forme à 2/5 ou moins","Réduis les séries de 30–40 % sans toucher aux charges, ou passe en Z2."],
+    ["Grosses courbatures aux jambes le lundi","Remplace Force A par 3 séries de 5 à RPE 6."],
+    ["Manque de temps","Club > Force A > Force B > HIIT > M1 > Z2. M2 saute en dernier."],
+    ["Fièvre ou maladie","Repos complet. Reprends à RPE 6 et remonte en 3–4 jours."],
+    ["Séance manquée","Ne la rattrape pas. Passe à la suivante."]]}]}
+};
+var FORDER=["M1","M2","M3","PRE","TESTS","CLUB","JEU","JOURJ","REP"];
+var FSHORT={M1:"M1",M2:"M2",M3:"M3",PRE:"Prévention",TESTS:"Tests",CLUB:"Club",JEU:"Plan de jeu",JOURJ:"Jour J",REP:"Repères"};
+
+/* ---------- Force ---------- */
+var FA=[
+ {n:"Squat (gobelet → barre)",d:["3–4 × 8–10 · RPE 7–8","4–5 × 3–5 · RPE 8–8,5","3 × 3 · RPE 8, puis 3 × 3 sauts","3 × 3 · RPE 8","2 × 3 · RPE 7, vitesse"],c:"Descente de 3 s, genoux dans l’axe des pieds.",q:"squat technique"},
+ {n:["Soulevé roumain","Soulevé de terre (trap bar ou conventionnel)","Soulevé roumain","Soulevé roumain","Soulevé roumain"],d:["3 × 8","4 × 3–4","3 × 4","2 × 4","1 × 4"],c:"Dos neutre, barre collée aux jambes.",q:["romanian deadlift technique","trap bar deadlift technique","romanian deadlift technique","romanian deadlift technique","romanian deadlift technique"]},
+ {n:"Tractions (puis lestées)",d:["3 × 6–8","4 × 4–6","3 × 4","3 × 3","2 × 3"],c:"Lestée dès que 3 × 8 sont propres.",q:"pull up technique"},
+ {n:"Fente bulgare",d:["3 × 8 / jambe","3 × 5 / jambe","2 × 5 / jambe","2 × 4 / jambe","—"],c:"Contrôle du genou, pied avant stable.",q:"fente bulgare technique"},
+ {n:"Pallof press + dead bug",d:["3 × 10 / côté","3 × 8 lourd","2 × 8","2 × 8","1 × 8"],c:"Anti-rotation : le tronc ne bouge pas.",q:"pallof press"},
+ {n:"Farmer carry",d:["3 × 30–40 m","4 × 20 m lourd","2 × 20 m","2 × 20 m","—"],c:"Épaules basses, prise fermée.",q:"farmer carry technique"}
+];
+var FB=[
+ {n:"Développé couché (barre ou haltères)",d:["3 × 8–10","4 × 4–6","3 × 3–5","3 × 3","—"],c:"Omoplates serrées, trajectoire stable.",q:"développé couché technique"},
+ {n:"Rowing barre ou haltère à un bras",d:["3 × 8–10","4 × 5–6","3 × 4","3 × 3","—"],c:"Tirage vers la hanche.",q:"barbell row technique"},
+ {n:"Développé militaire ou landmine press",d:["3 × 8","3 × 5","2 × 5","2 × 4","—"],c:"Gainé, côtes rentrées.",q:"landmine press technique"},
+ {n:"Tractions prise serviette",d:["3 × 4–6","4 × 3–5","2 × 4","2 × 3","—"],c:"Grip + biceps, mouvement contrôlé.",q:"towel pull up grip training"},
+ {n:"Rotation : landmine ou lancers de medicine-ball",d:["3 × 6 / côté","3 × 5 explosif","3 × 4","2 × 4","—"],c:"Rotation depuis les hanches.",q:"landmine rotation medicine ball rotational throw"},
+ {n:"Nuque isométrique (4 directions)",d:["3 × 15 s","3 × 15 s","2 × 15 s","2 × 15 s","1 × 15 s"],c:"RPE 6 : jamais de secousse.",q:"neck isometric 4 directions"},
+ {n:"Doigts / avant-bras (élastique, curls, suspension)",d:["3 × 20–30 s","3 × 30–40 s","2 × 30 s","2 × 20 s","—"],c:"Extension des doigts = prévention.",q:"finger extension forearm training grappling"},
+ {n:"Face pull + rotation externe",d:["2 × 12","2 × 12","2 × 12","2 × 10","1 × 10"],c:"Coudes hauts, contrôle.",q:"face pull technique"}
+];
+function liftRows(tbl,p){
+  var out=[];
+  tbl.forEach(function(e){
+    var d=e.d[p]; if(d==="—") return;
+    var n=Array.isArray(e.n)?e.n[p]:e.n;
+    var q=Array.isArray(e.q)?e.q[p]:e.q;
+    out.push(E(n,d,e.c,q));
+  });
+  return out;
+}
+
+/* ---------- HIIT ---------- */
+var HI=[
+ {f:"4 × 4 min en course, vélo ou rameur",r:"RPE 8",rest:"3 min faciles",ty:"c",dur:"45–50 min"},
+ {f:"5 × 3 min en course, vélo ou rameur",r:"RPE 8–8,5",rest:"2 min",ty:"c",dur:"45–50 min"},
+ {f:"Circuit grappling · 4 rounds de 5 min",r:"RPE 8,5",rest:"2 min",ty:"g",dur:"45–50 min"},
+ {f:"Circuit grappling · 5 rounds de 5 min",r:"RPE 8,5",rest:"2 min",ty:"g",dur:"50 min"},
+ {f:"Circuit grappling · 5 rounds de 5 min",r:"RPE 9",rest:"1 min 30",ty:"g",dur:"50 min"},
+ {f:"5 rounds de 5 min, dernière minute à fond",r:"RPE 9",rest:"1 min 30",ty:"g6",dur:"55 min"},
+ {f:"3 rounds de 5 min",r:"RPE 9",rest:"2 min",ty:"g",dur:"35 min"},
+ {f:"3 rounds de 2 min, puis 3 sprints de 10 s",r:"RPE 9",rest:"3 min",ty:"s",dur:"30 min"}
+];
+
+/* ---------- Club text ---------- */
+var CLUBT=[
+ {o:"Un objectif par round : passer la garde, sortir d’un contrôle, finir une position choisie. Beaucoup de départs imposés.",r:"RPE 6–7.",k:"Tap tôt. Pas de blessure avant d’avoir bâti la base.",sun:"Modules techniques, puis sparring à RPE 6–7."},
+ {o:"Rounds de 5 min en partant debout, avec points. Joue ta chaîne principale.",r:"RPE 7–8.",k:"3–5 rounds vifs, le reste en technique.",sun:"Rounds de 5 min depuis debout, RPE 7–8."},
+ {o:"Rounds de compétition : 5 min chronométrés, départ debout, points. Entraîne la gestion de la dernière minute.",r:"RPE 8.",k:"3–4 rounds vifs maximum. Aucune technique nouvelle.",sun:"Rounds libres, aucune technique nouvelle, RPE 7–8."},
+ {o:"Volume de sparring ≈ 60 % de l’habituel : 3 rounds vifs de 5 min, le reste en technique. Aucune nouveauté, pas de situations à risque.",r:"RPE 8.",k:"",sun:"Technique, puis 3–4 rounds à 80 % d’intensité maximum. Sors sans blessure."}
+];
+
+/* ---------- Day builder ---------- */
+function B(o){o.refs=o.refs||[];return o;}
+function build(w,dow){
+  var p=phaseOf(w),am,pm;
+  switch(dow){
+  case 0:
+    am=B({short:"M1",title:"Mobilité M1 + activation",dur:p===3?"≈ 15 min":p===4?"≈ 15 min":"≈ 20 min",load:1,
+      text:p>=3?"Réveil dynamique, tranquille.":"Réveil dynamique (hanches, colonne, épaules), puis activation des fessiers et des omoplates.",refs:["M1"]});
+    var fat=[
+      ["Force A · jambes + tirage","60 min",3,"Squat, soulevé roumain, tractions, fente bulgare, gainage anti-rotation, farmer carry. Repos 90 s entre les séries."],
+      ["Force A · lourd","60 min",3,"Charges lourdes. RPE 8–8,5, repos 2–3 min entre les séries."],
+      ["Force A · contraste","50 min",3,"Squat suivi de sauts. Repos long, aucune série à l’échec."],
+      ["Force A · courte","40 min",2,"Même charge qu’en S6, RPE 8. Moins de séries."],
+      ["Force A · éveil","35 min",1,"Squat RPE 7, à vitesse. Tu sors frais."]][p];
+    pm=B({short:"Force A",title:fat[0],dur:fat[1],load:fat[2],text:fat[3]+" Échauffement : 5 min de cardio léger, M1 abrégé, 2 séries de montée en charge au squat.",ex:liftRows(FA,p)});
+    break;
+  case 1:
+    am=B({short:p===4?"M1+Pré":"M1+Pré",title:p===4?"M1 + prévention courte":"M1 + prévention",dur:p===4?"≈ 20 min":"≈ 27 min",load:1,
+      text:p===4?"Doigts, nuque, genoux : 1 série de chaque.":"M1 (12 min), puis prévention doigts, avant-bras, nuque, épaules, genoux et hanches (15 min).",refs:p===4?["M1"]:["M1","PRE"]});
+    var h=HI[w];
+    var hx=[E(h.f,h.r+" · récup "+h.rest,"",null)];
+    var ht="Échauffement 10 min (M1 + 3 accélérations), travail, 5 min de retour au calme.";
+    if(h.ty==="g"||h.ty==="g6"){
+      ht+=" Un round de 5 min = 5 stations de 45 s de travail et 15 s de transition."+(h.ty==="g6"?" La 5e minute de chaque round est à fond : tu simules la fin de combat.":"");
+      hx=hx.concat(STATIONS);
+    }
+    pm=B({short:"HIIT",title:w===0||w===1?"HIIT spécifique":w===7?"HIIT · ouverture":w===6?"HIIT · court et vif":w===5?"HIIT · compétition":"HIIT · circuit grappling",dur:h.dur,load:3,
+      text:w===7?ht+" Dernière séance vive avant la compétition.":ht,ex:hx});
+    break;
+  case 2:
+    var z=[["40–45 min","Vélo, rameur ou course à RPE 3–4 : tu parles sans t’essouffler. Finis par 5 min de M1."],
+           ["40 min","RPE 3–4, vélo ou rameur. Finis par 5 min de M1."],
+           ["30 min","RPE 3–4, court. Finis par M1."],
+           ["25–30 min","Très facile. Finis par M1."]];
+    if(p===4){
+      am=B({short:"Z2+M3",title:"Z2 très facile + M3",dur:"≈ 35 min",load:1,text:"20 min facile, puis M3 allégé.",refs:["M3"]});
+      pm=B({short:"Plan de jeu",title:"Plan de jeu · 70 %",dur:"30 min",load:1,text:"Drilling lent de tes 2 chaînes, puis 10 min de visualisation, de l’échauffement à la victoire.",refs:["JEU"]});
+    } else {
+      am=B({short:"Z2",title:"Aérobie facile (Z2)",dur:z[p][0],load:2,text:z[p][1],refs:p<2?["M1"]:[]});
+      var fbt=[["Force B · haut du corps + grip","55–60 min",2,"Développé couché, rowing, développé militaire, tractions serviette, rotations, nuque, doigts. RPE 7–8."],
+               ["Force B · lourd","55 min",2,"Séries lourdes, RPE 8."],
+               ["Force B · maintien","45–50 min",2,"RPE 8, aucune série à l’échec."],
+               ["Force B · courte","35 min",1,"Rapide, jamais à l’échec."]][p];
+      pm=B({short:"Force B",title:fbt[0],dur:fbt[1],load:fbt[2],text:fbt[3],ex:liftRows(FB,p)});
+    }
+    break;
+  case 3:
+    var vt=[["≈ 45 min","M1 (12 min), M3 (15 min), puis 20 min de combats No-Gi à analyser : repère 1 amenée au sol et 1 finition à copier."],
+            ["≈ 45 min","M1, M3, puis 20 min de vidéo : prépare ta chaîne principale (amenée au sol → contrôle → finition)."],
+            ["≈ 45 min","M1, M3, puis revois tes chaînes. Choisis ton plan A et ton plan B."],
+            ["≈ 35 min","M1, M3, puis revois tes vidéos. Visualise tes chaînes."],
+            ["≈ 25 min","M1, puis un dernier coup d’œil à ton plan A/B."]][p];
+    am=B({short:p===4?"M1+vidéo":"M1+M3",title:p===4?"M1 + vidéo légère":"M1 + M3 + vidéo",dur:vt[0],load:1,text:vt[1],refs:p===4?["M1"]:["M1","M3"]});
+    if(p===4){
+      pm=B({short:"Club",title:"Club · technique",dur:"au choix",load:1,
+        text:"Technique et flow rolling uniquement. Pas de sparring dur à 48 h de la compétition. Pars plus tôt si la séance dérive vers du sparring intense. Dors avant 23h00.",refs:["CLUB"]});
+    } else {
+      var c=CLUBT[p];
+      pm=B({short:"Club",title:"Club · 19h00–21h30",dur:"150 min",load:3,
+        text:"Repas léger vers 16h30. Échauffement perso dès 18h15 (M1 + 3 drills). "+c.o+" Intensité "+c.r+(c.k?" "+c.k:"")+" Limite l’effort vif à environ 1h30, puis passe en flow ou en technique.",refs:["CLUB"]});
+    }
+    break;
+  case 4:
+    var ft=[["≈ 50 min","M2 (30 min) : étirements de 30–45 s et PNF, jamais jusqu’à la douleur. Puis marche tranquille de 20 min."],
+            ["≈ 50 min","M2 complet (30 min), puis marche de 20 min."],
+            ["≈ 40 min","M2 allégé (20 min), puis marche de 20 min."],
+            ["≈ 40 min","M2 allégé (20 min), puis marche de 20 min."],
+            ["≈ 35 min","Étirements de 20–30 s, très doux. Marche tranquille de 15 min."]][p];
+    am=B({short:"M2",title:p===4?"M2 doux + marche":"Souplesse M2 + marche",dur:ft[0],load:1,text:ft[1],refs:["M2"]});
+    if(p===4){
+      pm=B({short:"Veille",title:"Veille · logistique",dur:"15 min",load:1,text:"Activation de 15 min en fin d’après-midi (M1 + 3 drills). Sac prêt. Repas riche en glucides habituels, hydratation, coucher avant 22h30.",refs:["JOURJ"]});
+    } else {
+      pm=B({short:"Repos",title:"Repos complet",dur:"—",load:0,
+        text:p===2?"Aucune séance. Mange et dors bien : demain, c’est la répétition générale.":p===3?"Aucune séance.":"Aucune séance. Sommeil, repas complets, hydratation. Option : 20 min d’étude tactique."});
+    }
+    break;
+  case 5:
+    if(p===4){
+      am=B({short:"Jour J",title:"Jour J",dur:"—",load:2,comp:true,text:"Lever 3 h avant le premier combat, petit-déjeuner testé, échauffement en 20–25 min, routine entre les combats.",refs:["JOURJ"]});
+      pm=B({short:"Compét.",title:"Compétition · 28 novembre",dur:"—",load:3,comp:true,text:"Plan A, plan B, respiration, routine. Repas de récupération (protéines + glucides) dans l’heure suivant le dernier combat.",refs:["JEU"]});
+      break;
+    }
+    if(p===3){
+      am=B({short:"M1+marche",title:"Mobilité M1 + marche",dur:"≈ 30 min",load:1,text:"Pas de cardio structuré ce matin.",refs:["M1"]});
+    } else if(p===2){
+      am=B({short:"Z2",title:"Aérobie facile (Z2)",dur:"30 min",load:2,text:"RPE 3–4. Lève-toi à l’heure à laquelle tu devras te lever le 28 novembre."});
+    } else if(p===1){
+      am=B({short:"Z2+acc.",title:"Aérobie facile + accélérations",dur:"35 min",load:2,text:"Z2, puis 4 accélérations de 20 s (RPE 7) avec 1 min de marche."});
+    } else {
+      am=B({short:"Z2",title:"Aérobie facile (Z2)",dur:"40 min",load:2,text:"Course ou vélo à RPE 3–4 sur terrain plat."});
+    }
+    var PW=[
+      E("Saut vertical ou box jump","× 4","Vitesse, réception silencieuse.","box jump technique"),
+      E("Kettlebell swing explosif","× 6","Hanches, pas les bras.","kettlebell swing technique"),
+      E("Slam de medicine-ball","× 5","","medicine ball slam"),
+      E("Pompes explosives","× 4","","explosive push up")
+    ];
+    if(w===0){
+      pm=B({short:"Tests",title:"Tests · première évaluation",dur:"45 min",load:2,text:"À la place de la séance de puissance. Échauffement de 10 min, puis les tests dans cet ordre. Note tout dans ton journal.",ex:TESTS,refs:[]});
+    } else if(w===4){
+      pm=B({short:"Retest",title:"Retest · deuxième évaluation",dur:"45 min",load:2,text:"Même protocole que le 10 octobre. Compare tes résultats.",ex:TESTS});
+    } else if(w===5){
+      pm=B({short:"Répét. générale",title:"Répétition générale",dur:"60 min",load:3,
+        text:"À l’heure prévue du combat. Petit-déjeuner testé 3 h avant. Échauffement complet de 20 min, puis 2 « combats » de 5 min séparés de 15 min (avec un partenaire du club si possible, sinon circuit grappling). Retour au calme. Note ce qui a marché.",
+        ex:[E("Échauffement complet","20 min","Celui que tu feras le 28.",null),E("Combat 1","5 min","Plan A d’abord.",null),E("Repos","15 min","Comme entre deux combats : boire, manger léger, mobilité.",null),E("Combat 2","5 min","Dernière minute lucide.",null),E("Retour au calme","5 min","Puis écris ce qui a marché.",null)],refs:["JOURJ"]});
+    } else if(w===6){
+      pm=B({short:"Puissance",title:"Puissance courte + plan de jeu",dur:"40 min",load:2,text:"2 tours de puissance à vitesse maximale, peu de répétitions. Puis 20 min de drilling de tes 2 chaînes.",ex:PW,refs:["JEU"]});
+    } else {
+      var tours=p===0?"2 tours à charge légère, technique.":"3–4 tours à pleine vitesse.";
+      pm=B({short:"Puissance",title:"Puissance + drilling solo",dur:"60 min",load:2,
+        text:"15 min de puissance : "+tours+" Repos 90 s entre les tours : on cherche la vitesse, pas la fatigue. Puis 30 min de drilling solo (6 drills de 4 min + 1 min de pause, à 80 % de vitesse) et 10 min de plan de jeu.",
+        ex:PW.concat([
+          E("Drilling solo · 6 drills de 4 min","30 min","Hip escape, pont + roulade, sprawl + relevé, shadow-wrestling, footwork du knee cut, back-step / granby roll.","solo bjj drills at home"),
+          E("Plan de jeu","10 min","Une chaîne depuis le debout, une depuis le sol. Note-les dans ton journal.",null)]),refs:["JEU"]});
+    }
+    break;
+  default:
+    if(p===4){
+      am=B({short:"Récup",title:"Récupération",dur:"—",load:0,text:"Grasse matinée, petit-déjeuner complet, marche tranquille."});
+      pm=B({short:"Débrief",title:"Club optionnel · débrief",dur:"—",load:1,text:"Pas d’obligation d’aller au club. Si tu y vas : technique seulement. Note dans ton journal ce que tu as appris du tournoi : c’est le point de départ du prochain cycle."});
+      break;
+    }
+    var cs=CLUBT[p];
+    am=B({short:"Club",title:"Club · 11h00–12h30",dur:"90 min",load:3,
+      text:"Lève-toi avant 8h30, petit-déjeuner 3 h avant, M1 de 10 min. "+cs.sun,refs:["CLUB"]});
+    pm=B({short:"Récup",title:"Récup + bilan",dur:"≈ 45 min",load:1,
+      text:"Marche 20 min, M2 allégé 15 min, repas riche en protéines et glucides, bilan de semaine dans le journal (10 min)"+(p===3?", mise au point de la semaine de compétition.":p===2?". Dernière semaine pleine charge terminée.":", préparation de la suivante."),refs:["M2"]});
+  }
+  return {am:am,pm:pm};
+}
+var DAYS=[];
+for(var i=0;i<N;i++){var b=build(Math.floor(i/7),i%7);DAYS.push(b);}
+
+/* ---------- State ---------- */
+var DONE={};
+try{DONE=JSON.parse(localStorage.getItem("jjb28-done")||"{}")||{};}catch(e){DONE={};}
+function saveDone(){try{localStorage.setItem("jjb28-done",JSON.stringify(DONE));}catch(e){}}
+var today0=new Date();today0=new Date(today0.getFullYear(),today0.getMonth(),today0.getDate());
+var todayIdx=Math.round((today0-new Date(2026,9,5))/864e5);
+var startDay=todayIdx<0?0:todayIdx>=N?N-1:todayIdx;
+var st={view:"cal",day:startDay,fiche:"M1"};
+try{var sv=localStorage.getItem("jjb28-view");if(sv==="cal"||sv==="day"||sv==="fiches")st.view=sv;}catch(e){}
+try{var sd=parseInt(localStorage.getItem("jjb28-day"),10);if(sd>=0&&sd<N&&todayIdx<0)st.day=sd;}catch(e){}
+var hm=/^#j(\d+)$/.exec(location.hash||"");if(hm&&+hm[1]<N){st.day=+hm[1];st.view="day";}
+
+/* ---------- Rendering ---------- */
+function rowsHTML(rows){
+  return '<ul class="exs">'+rows.map(function(r){
+    var link=r.q?'<a class="v" href="'+yt(r.q)+'" target="_blank" rel="noopener">Vidéo ↗</a>':'<span class="v none">Vidéo</span>';
+    return '<li class="ex"><span class="n">'+r.n+'</span><span class="dose">'+r.d+'</span><span class="c">'+r.c+'</span>'+link+'</li>';
+  }).join("")+'</ul>';
+}
+function tableHTML(b){
+  return '<div class="tw"><table><thead><tr>'+b.head.map(function(h){return "<th>"+h+"</th>";}).join("")+'</tr></thead><tbody>'+
+    b.body.map(function(r){return "<tr>"+r.map(function(c){return "<td>"+c+"</td>";}).join("")+"</tr>";}).join("")+'</tbody></table></div>';
+}
+function ficheHTML(id){
+  return FICHES[id].blocks.map(function(b){
+    if(b.t==="rows")return rowsHTML(b.rows);
+    if(b.t==="table")return tableHTML(b);
+    if(b.t==="p")return '<p class="note">'+b.x+'</p>';
+    if(b.t==="h")return '<h4>'+b.x+'</h4>';
+    if(b.t==="ul")return '<ul class="bul">'+b.x.map(function(x){return "<li>"+x+"</li>";}).join("")+'</ul>';
+    return "";
+  }).join("");
+}
+function dayDone(i){
+  var d=DAYS[i],n=0,k=0;
+  ["am","pm"].forEach(function(s){if(d[s].load>0){n++;if(DONE[i+"-"+s])k++;}});
+  return n>0&&k===n;
+}
+function totals(){
+  var n=0,k=0;
+  for(var i=0;i<N;i++){["am","pm"].forEach(function(s){if(DAYS[i][s].load>0){n++;if(DONE[i+"-"+s])k++;}});}
+  return {n:n,k:k};
+}
+function nextClub(){
+  for(var i=Math.max(todayIdx,0);i<=52;i++){
+    var dw=i%7;if(dw===3||dw===6)return JOURS[dw]+" "+fmt(i);
+  }
+  return "—";
+}
+function hero(){
+  var dl=Math.round((new Date(2026,10,28)-today0)/864e5),t=totals();
+  var cnt=dl>0?"J−"+dl:dl===0?"Jour J":"Fait";
+  var lab=dl>0?"avant la compétition":dl===0?"c’est aujourd’hui":"compétition passée";
+  var wk=todayIdx<0?"Départ lundi 5 octobre":todayIdx>=N?"Cycle terminé":"Semaine "+(Math.floor(todayIdx/7)+1)+" sur 8";
+  return '';
+}
+function calendar(){
+  var h='<div class="sec-h"><h2>Les 8 semaines</h2><p>5 octobre → 29 novembre 2026</p></div><div class="cal"><div class="row head"><div></div>'+
+    JOURS.map(function(j){return "<div>"+j.slice(0,3)+"</div>";}).join("")+'</div>';
+  for(var w=0;w<8;w++){
+    var np=w>0&&phaseOf(w)!==phaseOf(w-1)&&!(w===7&&phaseOf(6)===3&&false);
+    var nph=w>0&&WKN[w]!==WKN[w-1];
+    h+='<div class="row wk'+(nph?" newphase":"")+'"><div class="wk-h"><b>S'+(w+1)+'</b><small>'+WKN[w]+'</small></div>';
+    for(var dw=0;dw<7;dw++){
+      var i=w*7+dw,d=DAYS[i],dt=dateOf(i);
+      var cls="cell"+(i===todayIdx?" today":"")+(d.pm.comp?" comp":"")+(dayDone(i)?" all-done":"");
+      var mon=(dt.getDate()===1||i===0)?"<small>"+MOIS[dt.getMonth()].slice(0,3)+".</small>":"";
+      h+='<button class="'+cls+'" data-day="'+i+'" aria-label="'+fmtFull(i)+'"><span class="tick">✓</span><span class="d">'+dt.getDate()+mon+'</span>'+
+        '<span class="lab"><em>'+d.am.short+'</em><b>'+d.pm.short+'</b></span>'+
+        '<span class="bars"><i class="l'+d.am.load+'"></i><i class="l'+d.pm.load+'"></i></span></button>';
+    }
+    h+='</div>';
+  }
+  h+='</div><div class="legend"><span>Barre du haut : matin. Barre du bas : après-midi et soirée.</span>'+
+    [0,1,2,3].map(function(l){return '<span><i class="l'+l+'"></i>'+LOADN[l]+'</span>';}).join("")+'</div>';
+  return h;
+}
+function blockHTML(i,slot,b){
+  var key=i+"-"+slot,done=!!DONE[key];
+  var meta='<div class="b-meta"><span class="b-slot">'+(slot==="am"?"Matin":"Après-midi & soirée")+'</span><span class="b-dur">'+b.dur+'</span>'+
+    '<span class="b-load"><i class="l'+b.load+'"></i>'+LOADN[b.load]+'</span>'+
+    (b.load>0?'<button class="chk" data-done="'+key+'" aria-pressed="'+done+'"><span class="box"></span>Fait</button>':'')+'</div>';
+  var main='<div class="b-main"><h3>'+b.title+'</h3><p class="b-text">'+b.text+'</p>'+(b.ex?rowsHTML(b.ex):"")+
+    b.refs.map(function(r){return '<details class="fiche"><summary>'+FICHES[r].name+'</summary><div class="fb">'+ficheHTML(r)+'</div></details>';}).join("")+'</div>';
+  return '<section class="block'+(b.load===0?" is-rest":"")+'">'+meta+main+'</section>';
+}
+function dayView(){
+  var i=st.day,w=Math.floor(i/7),d=DAYS[i];
+  var eb="Semaine "+(w+1)+" · "+PHN[phaseOf(w)]+(i===todayIdx?" · Aujourd’hui":"");
+  var h='<div class="dayhead"><div><p class="eyebrow">'+eb+'</p><h2>'+fmtFull(i)+'</h2></div>'+
+    '<div class="pn"><button data-nav="-1" aria-label="Jour précédent"'+(i===0?" disabled":"")+'>←</button><button data-nav="1" aria-label="Jour suivant"'+(i===N-1?" disabled":"")+'>→</button></div></div>';
+  h+='<div class="strip">';
+  for(var k=0;k<7;k++){
+    var j=w*7+k;
+    h+='<button data-day="'+j+'"'+(j===i?' aria-current="date"':"")+' aria-label="'+fmtFull(j)+'"><small>'+JL[k]+'</small><b>'+dateOf(j).getDate()+'</b></button>';
+  }
+  h+='</div>';
+  h+=blockHTML(i,"am",d.am)+blockHTML(i,"pm",d.pm);
+  return h;
+}
+function fichesView(){
+  var f=FICHES[st.fiche];
+  var h='<div class="sec-h"><h2>Fiches</h2><p>Les séances types, au même endroit.</p></div><div class="fnav">'+
+    FORDER.map(function(id){return '<button data-fiche="'+id+'" aria-current="'+(id===st.fiche)+'">'+FSHORT[id]+'</button>';}).join("")+'</div>';
+  h+='<div class="fview"><h3>'+f.name+'</h3><p class="sub">'+f.sub+'</p>'+ficheHTML(st.fiche)+'</div>';
+  return h;
+}
+function render(){
+  var app=document.getElementById("app");
+  app.innerHTML=st.view==="cal"?hero()+calendar():st.view==="day"?dayView():fichesView();
+  Array.prototype.forEach.call(document.querySelectorAll(".tab"),function(t){
+    if(t.getAttribute("data-view")===st.view)t.setAttribute("aria-current","page");else t.removeAttribute("aria-current");
+  });
+  try{localStorage.setItem("jjb28-view",st.view);localStorage.setItem("jjb28-day",String(st.day));}catch(e){}
+}
+function go(view,top){st.view=view;render();if(top!==false)window.scrollTo(0,0);}
+
+document.addEventListener("click",function(e){
+  var t=e.target.closest("[data-view],[data-day],[data-nav],[data-done],[data-fiche]");
+  if(!t)return;
+  if(t.hasAttribute("data-view")){go(t.getAttribute("data-view"));return;}
+  if(t.hasAttribute("data-fiche")){st.fiche=t.getAttribute("data-fiche");render();return;}
+  if(t.hasAttribute("data-nav")){var n=st.day+parseInt(t.getAttribute("data-nav"),10);if(n>=0&&n<N){st.day=n;render();window.scrollTo(0,0);}return;}
+  if(t.hasAttribute("data-done")){
+    var k=t.getAttribute("data-done");
+    if(DONE[k])delete DONE[k];else DONE[k]=1;
+    saveDone();
+    t.setAttribute("aria-pressed",String(!!DONE[k]));
+    return;
+  }
+  if(t.hasAttribute("data-day")){st.day=parseInt(t.getAttribute("data-day"),10);go("day");return;}
+});
+document.addEventListener("keydown",function(e){
+  if(st.view!=="day")return;
+  if(e.key==="ArrowLeft"&&st.day>0){st.day--;render();}
+  if(e.key==="ArrowRight"&&st.day<N-1){st.day++;render();}
+});
+render();
+})();
+</script>
+
+</body></html>
